@@ -1,9 +1,13 @@
 package add
 
-// This function takes two integers
-// and returns the sum of them as an integer.
-// For more information regarding additions,
-// visit https://www.mathsisfun.com/numbers/addition.html
-func Add(a, b int) int {
+import (
+	"golang.org/x/exp/constraints"
+)
+
+type Number interface {
+	constraints.Integer | constraints.Float
+}
+
+func Add[T Number](a, b T) T {
 	return a + b
 }
